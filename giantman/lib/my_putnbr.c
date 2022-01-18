@@ -5,7 +5,7 @@
 ** print the number given
 */
 
-#include "../include/my.h"
+#include "my.h"
 
 void my_putnbr(int nb)
 {

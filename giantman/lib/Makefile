@@ -2,33 +2,35 @@
 ## EPITECH PROJECT, 2021
 ## Makefile
 ## File description:
-## Makefile
+## Make file
 ##
 
-SRC	=	*.c
+SRC	=	my_getnbr.c	\
+		my_putchar.c	\
+		my_putnbr.c	\
+		my_putstr.c	\
+		my_revstr.c	\
+		my_str_isnum.c	\
+		my_strcat.c	\
+		my_strdup_cond.c	\
+		my_strlen_int.c	\
+		my_strlen.c	\
 
-ALLGCC	=	*.o
+OBJ	=	$(SRC:.c=.o)
 
 NAME	=	libmy.a
 
-MY	=	../../my.h
+all:	$(NAME)
 
-DEST	=	../../include/
-
-all:	obj libmaker right clean
-
-libmaker:
-	ar rc $(NAME) $(ALLGCC)
-
-obj:
-	gcc -c $(SRC)
-
-right:
-	chmod 777 $(NAME)
+$(NAME):	$(OBJ)
+	gcc -c $(SRC) -g3
+	ar rc $(NAME) $(OBJ)
 
 clean:
-	rm -f *.o
-	rm -f *~
+	rm -f $(OBJ)
+	rm -f $(NAME)
 
-copy:
-	cp $(MY) $(DEST)
+fclean:	clean
+	rm $(NAME)
+
+re:	fclean all

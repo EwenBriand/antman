@@ -5,7 +5,7 @@
 ** len int
 */
 
-#include "../include/my.h"
+#include "my.h"
 
 int my_strlen_int(int nb)
 {

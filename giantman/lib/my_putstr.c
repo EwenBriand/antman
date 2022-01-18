@@ -5,7 +5,7 @@
 ** oui
 */
 
-#include "../include/my.h"
+#include "my.h"
 #include <unistd.h>
 
 int my_putstr(char const *str)

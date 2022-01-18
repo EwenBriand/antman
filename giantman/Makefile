@@ -1,25 +1,30 @@
 ##
 ## EPITECH PROJECT, 2021
-## Project Name
+## Makefile
 ## File description:
-## my Makefile
+## Launch program
 ##
 
 SRC	=	main.c
-
-PLACE	=	lib/
-
-MY	=	-L lib/
-
 NAME	=	giantman
+LDFLAGS	=	-L./lib/ -lmy
 
-all:	oui compile clean
-	
-compile:
-	gcc $(SRC) $(MY) -lmy -o $(NAME)
+all:	$(NAME) build
 
-oui:
-	$(MAKE) -C $(PLACE)
+$(NAME):
+	make -C lib/
+
+build:
+	gcc -Ilib/my -o $(NAME) $(SRC) $(LDFLAGS) -g3
+
+lib:
+	make -C lib/
 
 clean:
-	rm -rf *~
+	rm -f unit_tests *.gcda *.gcno
+	make clean -C lib/
+
+fclean:	clean
+	rm -f $(NAME)
+
+re:	fclean all
