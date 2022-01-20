@@ -36,11 +36,15 @@ char *base(int nb, char *str);
 
 
 charter_t *new_last_char(void);
+char *give_buffer(char const *file);
 int len_alpha(charter_t **my_alpha);
 charter_t **init_alphabet(char *str);
-charter_t **set_huff(charter_t **my_alpha);
+void destroy_alpha(charter_t **my_alpha);
 void destroy_charter_t(charter_t *charter);
+void destroy_all_charter(charter_t *my_alpha);
+charter_t **set_huff(charter_t **my_alpha);
 charter_t **huffman_tree(charter_t **my_alpha);
+int find_hiden_str(char *argv, char const *str);
 void write_bit(unsigned char *buff, char bit, int mode);
 unsigned char *compressor3000(char *str, charter_t **my_alpha);
 char *add_alpha_to_buff(charter_t **my_alpha, char *str);

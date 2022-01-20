@@ -16,7 +16,7 @@ NAME	=	antman
 all:	oui compile clean
 	
 compile:
-	gcc $(SRC) $(MY) -lmy -o $(NAME)
+	gcc $(SRC) $(MY) -lmy -o $(NAME) -g3
 
 oui:
 	$(MAKE) -C $(PLACE)

@@ -10,7 +10,7 @@
 char *str_copy(char *copy)
 {
     int len = my_strlen(copy);
-    char *my_copy = malloc(sizeof(char) * len);
+    char *my_copy = malloc(sizeof(char) * 9);
 
     for (int i = 0; i < len; ++i) {
         my_copy[i] = copy[i];

@@ -10,8 +10,9 @@
 int nb_iteration(char *str, char c)
 {
     int count = 0;
+    int len = my_strlen(str);
 
-    for (int i = 0; i < my_strlen(str); ++i) {
+    for (int i = 0; i < len; ++i) {
         if (str[i] == c)
             ++count;
     }
@@ -21,13 +22,17 @@ int nb_iteration(char *str, char c)
 void del_usless_char(charter_t **my_alpha)
 {
     int j = 0;
-    for (int i = 0; i < len_alpha(my_alpha); ++i) {
-        if (my_alpha[i]->nb_it == 0) {
+    int type = 0;
+    int len = len_alpha(my_alpha);
+
+    for (int i = 0; i < len; ++i) {
+        if (my_alpha[i]->nb_it == 0 && type == 0) {
             destroy_charter_t(my_alpha[i]);
-        }
+            my_alpha[i] = new_last_char();
+            type = 1;
+        } else if (my_alpha[i]->nb_it == 0)
+            destroy_charter_t(my_alpha[i]);
     }
-    for (j; my_alpha[j]->nb_it > 0; ++j);
-    my_alpha[j]->last_char = 1;
 }
 
 void tri_alpha(charter_t **my_alpha)
@@ -56,7 +61,7 @@ charter_t *init_charter(char c, char *str)
     charter_t *new = malloc(sizeof(charter_t));
     new->c = c;
     new->nb_it = nb_iteration(str, c);
-    new->huff = malloc(sizeof(char) * 8);
+    new->huff = malloc(sizeof(char) * 9);
     new->last_char = 0;
     return new;
 }
@@ -68,11 +73,11 @@ charter_t **init_alphabet(char *str)
 
     my_alpha[0] = init_charter(1, str);
     for (int i = 2; i < 127; ++i) {
-        temp = init_charter(i, str);
-        my_alpha[i - 1] = temp;
+        my_alpha[i - 1] = init_charter(i, str);
     }
-    my_alpha[126] = init_charter('c', "er");
-    my_alpha[126]->last_char = 1;
+  //  exit(0);
+    my_alpha[126] = init_charter(-32, str);
+    my_alpha[127] = new_last_char();
     tri_alpha(my_alpha);
     del_usless_char(my_alpha);
     return my_alpha;

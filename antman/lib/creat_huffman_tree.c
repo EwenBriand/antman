@@ -25,19 +25,16 @@ charter_t *give_new_charter(charter_t **my_alpha, int *min1, int *min2)
     new->last_char = 0;
     my_alpha[len]->last_char = 1;
     new->c = '\0';
+    printf("min1 = %c min2 = %c   -->  %i\n", new->left->c, new->right->c, new->nb_it);
     return new;
 }
 
-void new_tree_whitout_tow_lowests(charter_t **new_tree, charter_t**my_alpha, int min1, int min2)
+void new_tree_whitout_tow_lowests(charter_t **new_tree, charter_t**my_alpha,
+    int min1, int min2)
 {
     int count = 0;
-    int x;
-    if (len_alpha(my_alpha) == 1)
-        x = 2;
-    else
-        x = 1;
 
-    for (int i = 0; i < len_alpha(my_alpha) + x; ++i) {
+    for (int i = 0; i < len_alpha(my_alpha) + 1; ++i) {
         if (i != min1 && i != min2)
             new_tree[i - count] = my_alpha[i];
         else
@@ -52,7 +49,6 @@ charter_t **huffman_tree(charter_t **my_alpha)
     charter_t *temp;
     int min1 = 0;
     int min2 = 1;
-
     while (len > 1) {
         min1 = 0;
         min2 = 1;
