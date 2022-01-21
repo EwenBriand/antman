@@ -75,7 +75,6 @@ charter_t **init_alphabet(char *str)
     for (int i = 2; i < 127; ++i) {
         my_alpha[i - 1] = init_charter(i, str);
     }
-  //  exit(0);
     my_alpha[126] = init_charter(-32, str);
     my_alpha[127] = new_last_char();
     tri_alpha(my_alpha);

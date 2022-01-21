@@ -25,7 +25,7 @@ charter_t *give_new_charter(charter_t **my_alpha, int *min1, int *min2)
     new->last_char = 0;
     my_alpha[len]->last_char = 1;
     new->c = '\0';
-    printf("min1 = %c min2 = %c   -->  %i\n", new->left->c, new->right->c, new->nb_it);
+//    printf("min1 = %c min2 = %c   -->  %i\n", new->left->c, new->right->c, new->nb_it);
     return new;
 }
 

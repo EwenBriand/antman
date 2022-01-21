@@ -50,4 +50,7 @@ unsigned char *compressor3000(char *str, charter_t **my_alpha);
 char *add_alpha_to_buff(charter_t **my_alpha, char *str);
 void use_huffman_tree(charter_t *my_charter, charter_t **my_alpha, int *len, int first_loop);
 
+
+char *convertor_str_bin(unsigned char const *str);
+
 #endif

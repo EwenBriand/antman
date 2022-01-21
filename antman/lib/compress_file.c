@@ -28,13 +28,12 @@ unsigned char *compressor3000(char *str, charter_t **my_alpha)
             for (j; my_alpha[j]->c != str[i]; ++j);
             add_compressed_char(new_char, my_alpha[j], 0);
         }
-     //   printf("%c", my_alpha[j]->c);
         j = 0;
     }
-    if (str[len - 1] > 0 || str[len - 1] == -32)
+    if (str[len - 1] > 0 || str[len - 1] == -32){
         for (j; my_alpha[j]->c != str[len - 1]; ++j);
-    add_compressed_char(new_char, my_alpha[j], 1);
-//    printf("\n%s\n", "ok");
+        add_compressed_char(new_char, my_alpha[j], 1);
+    }
     j = 0;
     return new_char;
 }
