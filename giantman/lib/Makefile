@@ -15,6 +15,7 @@ SRC	=	my_getnbr.c	\
 		my_strdup_cond.c	\
 		my_strlen_int.c	\
 		my_strlen.c	\
+		count_strspaces.c	\
 
 OBJ	=	$(SRC:.c=.o)
 

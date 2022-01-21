@@ -24,5 +24,6 @@ char *my_revstr(char *str);
 int my_putstr(char const *str);
 void my_putnbr(int nb);
 void my_putchar(char c);
+int count_strspaces(char *str);
 
 #endif
