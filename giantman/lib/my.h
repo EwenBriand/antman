@@ -5,10 +5,25 @@
 ** creat the header of the libmy.a
 */
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+
 #ifndef _LIBALL_POOL
     #define _LIBALL_POOL
 
-#include <stdlib.h>
+typedef struct charter_s {
+    char c;
+    char *huff;
+    struct charter_s *left;
+    struct charter_s *right;
+    int nb_it;
+    int last_char;
+} charter_t;
 
 int my_getnbr(char const *str);
 int my_str_isnum(char const *str);
@@ -25,5 +40,6 @@ int my_putstr(char const *str);
 void my_putnbr(int nb);
 void my_putchar(char c);
 int count_strspaces(char *str);
+int len_alpha(charter_t **my_alpha);
 
 #endif
